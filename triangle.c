@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include "triangle.h"
 
-void haha()
+
+double traingleArea(float *a, float *b, float *c)
 {
-    printf("\nHello\n");
+    printf("Hello");
+    return 1.234;
 }

@@ -10,6 +10,10 @@ int main()
     float *chosenTempPtr;
     chosenTempPtr = &chosenTemp;
 
+    int chosenNumber;
+    int *chosenNumberPtr;
+    chosenNumberPtr = &chosenNumber;
+
     bool flag = true;
     bool *flagPointer;
     flagPointer = &flag;
@@ -34,7 +38,7 @@ while (flag)
 
     while (getchar() != '\n');
 
-    if(*chosenTempPtr <= 3 && *chosenTempPtr > 0 &&
+    if(*chosenTempPtr <= 2 && *chosenTempPtr > 0 &&
      *chosenTempPtr == ceil(*chosenTempPtr) &&
       *chosenTempPtr == floor(*chosenTempPtr))
     {
@@ -46,7 +50,71 @@ while (flag)
     }
 }
 
-   printf("You chosed: %f", *chosenTempPtr);
+*chosenNumberPtr = (int)*chosenTempPtr;
+
+   switch (*chosenNumberPtr)
+   {
+    case 1:
+       printf("Please provide the radius:\n");
+       int rightInput = 0;
+       float radius;
+       while(rightInput == 0)
+       {
+        rightInput = scanf("%f", &radius);
+        while (getchar() != '\n');
+        if(rightInput == 0)
+        printf("Invalid input\n");
+       }
+       double circumferenceSolution = circumference(&radius);
+       double areaSolution = area(&radius);
+
+       printf("The circumference: %lf\n", circumferenceSolution);
+       printf("The area: %lf", areaSolution);
+       
+       break;
+    case 2:
+       printf("Please provide all three sides of the right triangle:\n");
+       int aCheck, bCheck, cCheck;
+       int *aCheckPtr;
+       int *bCheckPtr;
+       int *cCheckPtr;
+       aCheckPtr = &aCheck;
+       bCheckPtr = &bCheck;
+       cCheckPtr = &cCheck;
+       float a, b, c;
+       float *aPtr;
+       float *bPtr; 
+       float *cPtr;
+       aPtr = &a;
+       bPtr = &b;
+       cPtr = &c; 
+       bool flager = false;
+       bool *flagerPtr = &flager;
+
+       while(*flagerPtr == false)
+       {
+           printf("A: ");
+           *aCheckPtr = scanf("%f", aPtr);
+           printf("\nB: ");
+           *bCheckPtr = scanf("%f", bPtr);
+           printf("\nC: ");
+           *cCheckPtr = scanf("%f", cPtr);
+           while (getchar() != '\n');
+
+           if(*aCheckPtr == 1 && *bCheckPtr == 1 && *cCheckPtr == 1)
+           *flagerPtr = true;
+           else
+           printf("\nIvalid input try again!\n");
+       }
+       break;
+    default:
+       printf("Error");
+       break;
+   }
+
+    
+
+   
    
     return 0;
 }
