@@ -73,7 +73,39 @@ while (flag)
        
        break;
     case 2:
-       printf("dupa");
+       printf("Please provide all three sides of the right triangle:\n");
+       int aCheck, bCheck, cCheck;
+       int *aCheckPtr;
+       int *bCheckPtr;
+       int *cCheckPtr;
+       aCheckPtr = &aCheck;
+       bCheckPtr = &bCheck;
+       cCheckPtr = &cCheck;
+       float a, b, c;
+       float *aPtr;
+       float *bPtr; 
+       float *cPtr;
+       aPtr = &a;
+       bPtr = &b;
+       cPtr = &c; 
+       bool flager = false;
+       bool *flagerPtr = &flager;
+
+       while(*flagerPtr == false)
+       {
+           printf("A: ");
+           *aCheckPtr = scanf("%f", aPtr);
+           printf("\nB: ");
+           *bCheckPtr = scanf("%f", bPtr);
+           printf("\nC: ");
+           *cCheckPtr = scanf("%f", cPtr);
+           while (getchar() != '\n');
+
+           if(*aCheckPtr == 1 && *bCheckPtr == 1 && *cCheckPtr == 1)
+           *flagerPtr = true;
+           else
+           printf("\nIvalid input try again!\n");
+       }
        break;
     default:
        printf("Error");
