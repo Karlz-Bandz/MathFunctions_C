@@ -1,21 +1,52 @@
-#include <stdio.h>
+#include<stdio.h>
+#include<stdbool.h>
+#include<math.h>
 #include "triangle.c"
 #include "circle.c"
 
 int main()
 {
-    float radius;
+    float chosenTemp;
+    float *chosenTempPtr;
+    chosenTempPtr = &chosenTemp;
+
+    bool flag = true;
+    bool *flagPointer;
+    flagPointer = &flag;
+
+    int validFormat = 1;
+    int *validFormatPtr;
+    validFormatPtr = &validFormat;
+
+    printf("Hello and welcome to my first C project.\nThis application has some math functions.\n");
+    printf("1. To calculate circumference and area of a circle with provided radius.\n");
+    printf("2. To calculate area of a right triangle with user specified side lengths.\n");
+
+while (flag)
+{
+    if(*validFormatPtr == 0)
+    {
+        printf("Invalid input!\n");
+    }
+    printf("PRESS THE NUMBER\n");
     
-    printf("Enter the radius: \n");
-    scanf("%f", &radius);
+    *validFormatPtr = scanf("%f", chosenTempPtr);
 
-    haha();
+    while (getchar() != '\n');
 
-    double test = circumference(&radius);
-    double test2 = area(&radius);
+    if(*chosenTempPtr <= 3 && *chosenTempPtr > 0 &&
+     *chosenTempPtr == ceil(*chosenTempPtr) &&
+      *chosenTempPtr == floor(*chosenTempPtr))
+    {
+         *flagPointer = false;
+    }
+    else
+    {
+         *validFormatPtr = 0;
+    }
+}
 
-    printf("Circumference: %lf\n", test);
-    printf("Area: %lf", test2);
+   printf("You chosed: %f", *chosenTempPtr);
    
     return 0;
 }
