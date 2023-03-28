@@ -1,9 +1,9 @@
 #include <stdio.h>
+#include <math.h>
 #include "triangle.h"
 
 
-double traingleArea(float *a, float *b, float *c)
+double traingleLongestSide(float *a, float *b)
 {
-    printf("Hello");
-    return 1.234;
+    return (double) sqrt((*a**a)+(*b**b));
 }

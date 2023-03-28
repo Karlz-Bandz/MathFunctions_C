@@ -73,7 +73,7 @@ while (flag)
        
        break;
     case 2:
-       printf("Please provide all three sides of the right triangle:\n");
+       printf("Please provide two sides of a right triangle:\n");
        int aCheck, bCheck, cCheck;
        int *aCheckPtr;
        int *bCheckPtr;
@@ -97,25 +97,23 @@ while (flag)
            *aCheckPtr = scanf("%f", aPtr);
            printf("\nB: ");
            *bCheckPtr = scanf("%f", bPtr);
-           printf("\nC: ");
-           *cCheckPtr = scanf("%f", cPtr);
+          
            while (getchar() != '\n');
 
-           if(*aCheckPtr == 1 && *bCheckPtr == 1 && *cCheckPtr == 1)
+           if(*aCheckPtr == 1 && *bCheckPtr == 1)
            *flagerPtr = true;
            else
            printf("\nIvalid input try again!\n");
        }
+
+       *cPtr = traingleLongestSide(aPtr, bPtr);
+
+       printf("\nLongest side: %lf", *cPtr);
        break;
     default:
        printf("Error");
        break;
    }
 
-    
-
-   
-   
     return 0;
 }
-
