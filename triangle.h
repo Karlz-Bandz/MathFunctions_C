@@ -2,6 +2,6 @@
 #define TRIANGLE_H
 
 
-double triangleArea(float *a, float *b, float *c);
+double triangleLongestSide(float *a, float *b);
 
 #endif
